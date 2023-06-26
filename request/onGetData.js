@@ -1,7 +1,11 @@
+const { default: axios } = require("axios")
+
 process.env["NTBA_FIX_350"] = 1
 
 const onGetData = async (bot, msg) => {
    try {
+      const image = await axios.get(`${process.env.SERVER_URL}/building.jpg`).then((res) => res.data)
+      console.log(image)
       await bot.deleteMessage(msg.message.chat.id, msg.message.message_id - 1)
       await bot.deleteMessage(msg.message.chat.id, msg.message.message_id)
       await bot.sendPhoto(msg.message.chat.id, `${process.env.SERVER_URL}/building.jpg`, {
