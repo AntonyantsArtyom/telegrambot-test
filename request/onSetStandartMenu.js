@@ -1,3 +1,5 @@
+const { default: axios } = require("axios")
+
 process.env["NTBA_FIX_350"] = 1
 
 const onSetStandartMenu = async (bot, msg) => {
