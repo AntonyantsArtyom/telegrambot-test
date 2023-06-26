@@ -41,4 +41,4 @@ cron.schedule("* * * * *", (time) => getPromotionsUpdate(time, bot), {
    timezone: "Etc/GMT-7",
 })
 
-startBot()
+//startBot()
