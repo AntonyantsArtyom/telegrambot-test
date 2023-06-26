@@ -1,5 +1,6 @@
 process.env["NTBA_FIX_350"] = 1
 
+const { default: axios } = require("axios")
 const User = require("../models/User")
 
 const getPromotionsUpdate = async (time, bot) => {
@@ -29,14 +30,23 @@ const getPromotionsUpdate = async (time, bot) => {
                parse_mode: "HTML",
             }
          )
+         const weekQR = await axios
+            .get(`${process.env.SERVER_URL}/generatePromotionQR/week/${user.username}`, {
+               responseType: "arraybuffer",
+            })
+            .then((response) => Buffer.from(response.data, "binary"))
+         const friendQR = await axios
+            .get(`${process.env.SERVER_URL}/generatePromotionQR/week/${user.username}`, {
+               responseType: "arraybuffer",
+            })
+            .then((response) => Buffer.from(response.data, "binary"))
          await bot.sendMediaGroup(user.chat, [
-            { type: "photo", media: `${process.env.SERVER_URL}/generatePromotionQR/week/${user.username}.png` },
-            { type: "photo", media: `${process.env.SERVER_URL}/generatePromotionQR/friend/${user.username}.png` },
+            { type: "photo", media: weekQR },
+            { type: "photo", media: friendQR },
          ])
       } catch (error) {
          console.log(error)
       }
    })
 }
-
 module.exports = getPromotionsUpdate
