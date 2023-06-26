@@ -36,9 +36,10 @@ server.listen(3000, () => console.log("сервер прослушивается
 
 server.get("/generatePromotionQR/:type/:name", generatePromotionQR)
 server.get("/usePromotionQR/:type/:name", usePromotion)
-
+/*
 cron.schedule("* * * * *", (time) => getPromotionsUpdate(time, bot), {
    timezone: "Etc/GMT-7",
 })
 
-//startBot()
+startBot()
+*/
