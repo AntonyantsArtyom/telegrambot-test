@@ -12,7 +12,7 @@ const token = process.env.TOKEN
 const bot = new TelegramBot(token, { polling: { interval: 200 }, onlyFirstMatch: true })
 const startBot = async () => {
    console.log("бот запущен")
-   mongoose.set("strictQuery", false).connect("mongodb://localhost:27017/testBot_Burgers")
+   mongoose.set("strictQuery", false).connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
    bot.onText(/\/start/, (msg, match) => request_onStart(bot, msg, match))
    bot.onText(/меню/, (msg, match) => request_onMenu(bot, msg, match))
    bot.on("callback_query", (msg) => msg.data == "get_data" && onGetData(bot, msg))
