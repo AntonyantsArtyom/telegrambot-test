@@ -1,10 +1,15 @@
 process.env["NTBA_FIX_350"] = 1
 const onSetSummerMenu = async (bot, msg) => {
    try {
+      const image = await axios
+         .get(`${process.env.SERVER_URL}/summermenu.jpg`, {
+            responseType: "arraybuffer",
+         })
+         .then((response) => Buffer.from(response.data, "binary"))
       await bot.editMessageMedia(
          {
             type: "photo",
-            media: `${process.env.SERVER_URL}/summermenu.jpg`,
+            media: image,
          },
          {
             chat_id: msg.message.chat.id,

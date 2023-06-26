@@ -2,10 +2,15 @@ process.env["NTBA_FIX_350"] = 1
 
 const onSetStandartMenu = async (bot, msg) => {
    try {
+      const image = await axios
+         .get(`${process.env.SERVER_URL}/standartmenu.jpg`, {
+            responseType: "arraybuffer",
+         })
+         .then((response) => Buffer.from(response.data, "binary"))
       await bot.editMessageMedia(
          {
             type: "photo",
-            media: `${process.env.SERVER_URL}/standartmenu.jpg`,
+            media: image,
          },
          {
             chat_id: msg.message.chat.id,

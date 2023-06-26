@@ -2,9 +2,14 @@ process.env["NTBA_FIX_350"] = 1
 
 const onGetCoffeeMenu = async (bot, msg) => {
    try {
+      const image = await axios
+         .get(`${process.env.SERVER_URL}/standartmenu.jpg`, {
+            responseType: "arraybuffer",
+         })
+         .then((response) => Buffer.from(response.data, "binary"))
       await bot.deleteMessage(msg.message.chat.id, msg.message.message_id - 1)
       await bot.deleteMessage(msg.message.chat.id, msg.message.message_id)
-      await bot.sendPhoto(msg.message.chat.id, `${process.env.SERVER_URL}/standartmenu.jpg`, {
+      await bot.sendPhoto(msg.message.chat.id, image, {
          parse_mode: "HTML",
          reply_markup: {
             inline_keyboard: [
