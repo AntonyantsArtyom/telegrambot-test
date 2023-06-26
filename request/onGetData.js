@@ -12,7 +12,9 @@ const onGetData = async (bot, msg) => {
             inline_keyboard: [[{ text: "назад в меню", callback_data: "back_to_menu" }]],
          },
       })
-   } catch (error) {}
+   } catch (error) {
+      console.log(error)
+   }
 }
 
 module.exports = onGetData

@@ -13,7 +13,9 @@ const onPromotions = async (bot, msg) => {
             },
          }
       )
-   } catch (error) {}
+   } catch (error) {
+      console.log(error)
+   }
 }
 
 module.exports = onPromotions

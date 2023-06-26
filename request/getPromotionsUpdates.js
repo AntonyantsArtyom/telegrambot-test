@@ -33,7 +33,9 @@ const getPromotionsUpdate = async (time, bot) => {
             { type: "photo", media: `${process.env.SERVER_URL}/generatePromotionQR/week/${user.username}.png` },
             { type: "photo", media: `${process.env.SERVER_URL}/generatePromotionQR/friend/${user.username}.png` },
          ])
-      } catch (error) {}
+      } catch (error) {
+         console.log(error)
+      }
    })
 }
 

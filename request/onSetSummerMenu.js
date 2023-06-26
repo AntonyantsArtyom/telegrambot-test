@@ -18,7 +18,9 @@ const onSetSummerMenu = async (bot, msg) => {
             },
          }
       )
-   } catch (error) {}
+   } catch (error) {
+      console.log(error)
+   }
 }
 
 module.exports = onSetSummerMenu

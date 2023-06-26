@@ -19,7 +19,9 @@ const onSetStandartMenu = async (bot, msg) => {
             },
          }
       )
-   } catch (error) {}
+   } catch (error) {
+      console.log(error)
+   }
 }
 
 module.exports = onSetStandartMenu

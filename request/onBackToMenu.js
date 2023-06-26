@@ -14,7 +14,9 @@ const onBackToMenu = async (bot, msg) => {
             ],
          },
       })
-   } catch (error) {}
+   } catch (error) {
+      console.log(error)
+   }
 }
 
 module.exports = onBackToMenu
