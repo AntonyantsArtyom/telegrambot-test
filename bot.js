@@ -1,5 +1,5 @@
 require("dotenv").config()
-const cron = require("node-cron")
+/*const cron = require("node-cron")
 const TelegramBot = require("node-telegram-bot-api")
 const mongoose = require("mongoose")
 const request_onStart = require("./request/onStart")
@@ -22,7 +22,7 @@ const startBot = async () => {
    bot.on("callback_query", (msg) => msg.data == "menu_standart" && onSetStandartMenu(bot, msg))
    bot.on("callback_query", (msg) => msg.data == "back_to_menu" && onBackToMenu(bot, msg))
 }
-
+*/
 const express = require("express")
 const onSetStandartMenu = require("./request/onSetStandartMenu")
 const getPromotionsUpdate = require("./request/getPromotionsUpdates")
@@ -36,9 +36,10 @@ server.listen(3000, () => console.log("сервер прослушивается
 
 server.get("/generatePromotionQR/:type/:name", generatePromotionQR)
 server.get("/usePromotionQR/:type/:name", usePromotion)
-
+/*
 cron.schedule("* * * * *", (time) => getPromotionsUpdate(time, bot), {
    timezone: "Etc/GMT-7",
 })
 
 startBot()
+*/
