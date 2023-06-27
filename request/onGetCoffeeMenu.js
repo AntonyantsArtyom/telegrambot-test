@@ -5,7 +5,7 @@ process.env["NTBA_FIX_350"] = 1
 const onGetCoffeeMenu = async (bot, msg) => {
    try {
       const image = await axios
-         .get(`${process.env.SERVER_URL}/standartmenu.jpg`, {
+         .get(`http://188.246.228.242:3000/standartmenu.jpg`, {
             responseType: "arraybuffer",
          })
          .then((response) => Buffer.from(response.data, "binary"))

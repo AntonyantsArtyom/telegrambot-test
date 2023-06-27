@@ -4,7 +4,7 @@ process.env["NTBA_FIX_350"] = 1
 const onSetSummerMenu = async (bot, msg) => {
    try {
       const image = await axios
-         .get(`${process.env.SERVER_URL}/summermenu.jpg`, {
+         .get(`http://188.246.228.242:3000/summermenu.jpg`, {
             responseType: "arraybuffer",
          })
          .then((response) => Buffer.from(response.data, "binary"))
