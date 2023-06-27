@@ -2,7 +2,7 @@ const qr = require("qr-image")
 
 const generatePromotionQR = async (req, res) => {
    const qrImage = qr.image(
-      `${process.env.SERVER_URL}/usePromotionQR/${req.params.type}/${req.params.name.replace(".png", "")}`,
+      `http://188.246.228.242:3000/usePromotionQR/${req.params.type}/${req.params.name.replace(".png", "")}`,
       {
          size: 5,
          margin: 5,

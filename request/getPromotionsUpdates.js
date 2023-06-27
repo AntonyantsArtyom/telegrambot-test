@@ -31,12 +31,12 @@ const getPromotionsUpdate = async (time, bot) => {
             }
          )
          const weekQR = await axios
-            .get(`${process.env.SERVER_URL}/generatePromotionQR/week/${user.username}`, {
+            .get(`http://188.246.228.242:3000/generatePromotionQR/week/${user.username}`, {
                responseType: "arraybuffer",
             })
             .then((response) => Buffer.from(response.data, "binary"))
          const friendQR = await axios
-            .get(`${process.env.SERVER_URL}/generatePromotionQR/week/${user.username}`, {
+            .get(`http://188.246.228.242:3000/generatePromotionQR/week/${user.username}`, {
                responseType: "arraybuffer",
             })
             .then((response) => Buffer.from(response.data, "binary"))
